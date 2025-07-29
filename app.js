@@ -89,6 +89,10 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
+
 // using diff routes files
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews/", reviewRouter);
