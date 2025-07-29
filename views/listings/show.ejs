@@ -20,8 +20,15 @@
       aspect-ratio: 3 / 2; 
     }
   }
-</style>
 
+  .starability-result {
+    overflow-x: auto;
+    white-space: nowrap;
+    max-width: 100%;
+    display: block;
+  }
+</style>
+<div class="container px-2 px-md-5">
     <div class="row mt-3">
         <div class="col-8 offset-3">
             <h3><%= listing.title %></h3>
@@ -83,19 +90,24 @@
             
             <% if(listing.reviews.length > 0) { %>
             <div class="row">
-                <p><b>All Reviews</b></p>
-             <% for(review of listing.reviews) { %>
-                 <div class="card col-5 ms-3 mb-3">
-                    <div class="card-body">
-                    <h5 class="card-title">@<%= review.author.username %></h5>
-                    <p class="starability-result card-text" data-rating="<%= review.rating%>"></p>
-                    <p class="card-text"><%= review.comment %></p>
-                    <form class="mb-3" method="post" action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE">
-                        <button class="btn btn-sm btn-dark edit-btn">Delete</button>
-                    </form>
+                <h5><b>All Reviews</b></h5>
+                <div class="row gx-2 gy-3">
+                    <% for(review of listing.reviews) { %>
+                        <div class="col-12 col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">@<%= review.author.username %></h5>
+                                    <p class="starability-result card-text" data-rating="<%= review.rating%>"></p>
+                                    <p class="card-text"><%= review.comment %></p>
+                                    <form class="mb-3" method="post" action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE">
+                                        <button class="btn btn-sm btn-dark edit-btn">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
                 </div>
-            </div>
-            <% } %>
+
             </div>
             <% } %>
         </div>
@@ -135,3 +147,4 @@
 
   </div>                   
         
+  </div>
