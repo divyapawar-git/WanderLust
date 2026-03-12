@@ -1,7 +1,5 @@
 # WanderLust
 WanderLust is a dynamic and responsive travel destination full-stack web application that allows users to browse, view, and manage travel listings.
-## Live Demo
-[Visit the site] https://wanderlust-24k9.onrender.com
 ## Tech Stack
 - **Frontend:** HTML, CSS, Bootstrap, EJS
 - **Backend:** Node.js, Express.js
